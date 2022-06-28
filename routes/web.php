@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Settings\AccountController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,5 +15,19 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+  return view('welcome');
+});
+
+Route::get('/settings/account', function () {
+  return view('settings.account');
+});
+
+Route::delete('/settings/account', [AccountController::class , 'destroy']);
+
+Route::get('/help/privacy', function () {
+  return view('help.privacy');
+});
+
+Route::get('/help/terms', function () {
+  return view('help.terms');
 });
